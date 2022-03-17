@@ -1,4 +1,4 @@
-# BFS 방식
+# BFS 방식 1
 from collections import deque
 
 
