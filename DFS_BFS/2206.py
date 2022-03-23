@@ -1,4 +1,4 @@
-# 벽 부수고 이동하기
+# 벽 뿌수고 이동하기
 import sys
 from collections import deque
 ##
