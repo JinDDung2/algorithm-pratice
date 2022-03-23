@@ -1,11 +1,11 @@
 # 벽 부수고 이동하기
 import sys
 from collections import deque
-
+##
 
 n, m = map(int, input().split())    # n 세로 / m 가로
 data = [list(map(int, sys.stdin.readline().strip())) for _ in range(n)]
-visited = [[[0, 0] for _ in range(m)] for _ in range(n)]    # [벽 부수기 전의 경우의 수 , 벽 한번부수고 난 후의 경우의 수]
+visited = [[[0, 0] for _ in range(m)] for _ in range(n)]    # [[x][y][벽 부수기 전의 경우의 수 , 벽 한번부수고 난 후의 경우의 수]]
 visited[0][0][0] = 1
 # print(data)
 # print('--')
