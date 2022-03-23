@@ -1,4 +1,4 @@
-# 3차원 토마토
+# 3차원 토마토 토마토
 from collections import deque
 
 
@@ -36,7 +36,7 @@ def bfs():
                         data[nz][nx][ny] = 1
                         box.append([nz, nx, ny])
             
-            
+
 bfs()
 
 for k in range(h):
