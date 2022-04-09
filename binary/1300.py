@@ -1,4 +1,5 @@
 # K번째 수
+# 더 정리해보기
 n = int(input())
 k = int(input())
 
