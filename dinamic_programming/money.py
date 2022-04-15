@@ -16,4 +16,3 @@ def dp():
         return d[m]
 
 print(dp())
-
