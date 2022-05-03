@@ -1,3 +1,6 @@
+# 금광
+# 최적 부분구조인가? O
+# 중복되는 부분 구조인가? 모르겠네
 import sys
 
 
@@ -25,13 +28,13 @@ def dynamic(result):
         result = max(result, dp[i][m-1])
 
         return result
- 
+
 t = int(sys.stdin.readline())
 for _ in range(t):
     n, m = map(int, sys.stdin.readline().split())
     data = list(map(int, sys.stdin.readline().split()))
     result = 0
-    print(dynamic(result))
+    print(dynamic(0))
 
 
 # 2
