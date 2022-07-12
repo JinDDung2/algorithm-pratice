@@ -19,6 +19,5 @@ for _ in range(n):
             data[bag_w+w] = bag_v+v
     bag.update(data)
 
-# print(bag)
 print(max(bag.values()))
 
