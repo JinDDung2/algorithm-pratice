@@ -1,17 +1,18 @@
 # 주유소
+
 n = int(input())
-km = list(map(int, input().split()))
-l = list(map(int, input().split()))
-l.pop()
-price = 0
-min_price = l[0]
+meter = list(map(int, input().split()))
+priceList = list(map(int, input().split()))
 
-for i in range(len(l)):
-    if min_price > l[i]:
-        min_price = l[i]
-    price += km[i]*min_price
+min_price = priceList[0]
+money = meter[0] * priceList[0]
 
-print(price)
+for i in range(1, n-1):
+    if min_price > priceList[i]:
+        min_price = priceList[i]
+    money += min_price * meter[i]
+
+print(money)
 
 # min_p = price[0]
 # total_price = 0
