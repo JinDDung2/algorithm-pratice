@@ -16,7 +16,6 @@ def solution(phone_book):
     
     return True
 
-
 def solution2(phone_book):
     answer = True
     hash_map = {}
