@@ -16,10 +16,12 @@ def solution(genres, plays):
     total_sort = sorted(total_dict.items(), key= lambda x:x[1], reverse=True)
     # print(total_sort)
 
+    # 장르마다 노래플레이 수 내림차순 정렬
     for genre in per_dict:
         # print(per_dict[genre])
         per_dict[genre] = sorted(per_dict[genre], key= lambda x: (-x[0]))
 
+    # answes 배열에 장르별 노래재생횟수 넣기
     for (genre, totalPlay) in total_sort:
         print(per_dict[genre])
         for (plays, idx) in per_dict[genre][:2]:
