@@ -7,8 +7,8 @@ def solution(genres, plays):
         total_dict[genres[i]] = total_dict.get(genres[i], 0) + plays[i]
         per_dict[genres[i]] = per_dict.get(genres[i], []) + [(plays[i], i)]
     
-    print(f"total_dict:{total_dict}")
-    print(f"per_dict:{per_dict}")
+    # print(f"total_dict:{total_dict}")
+    # print(f"per_dict:{per_dict}")
 
     # 총 재생횟수 내림차순 정렬
     total_sort = sorted(total_dict.items(), key= lambda x:x[1], reverse=True)
