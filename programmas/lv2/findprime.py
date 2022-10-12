@@ -11,6 +11,7 @@ def solution(numbers):
         for j in range(len(lst)):
             # 문자열로 합쳐준 후에 int로 변환
             num = int("".join(lst[j]))
+            
             if is_prime(num):
                 answer.append(num)
     
