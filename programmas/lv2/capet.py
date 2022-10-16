@@ -9,6 +9,6 @@ def solution(brown, yellow):
         if (total / height) % 1 == 0:
             width = total / height
             if width >= height:
-                if 2*(width + height - 2) == brown:
+                if 2*width + 2*height == brown+4:
                     answer = [width, height]
     return answer
