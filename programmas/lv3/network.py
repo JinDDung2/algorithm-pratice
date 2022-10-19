@@ -24,7 +24,6 @@ def bfs(n, computers, node, visited):
 def solution(n, computers):
     global visited
     visited = [False] * n
-    computers = deque(computers)
     network = 0
 
     for node in range(n):
@@ -34,4 +33,5 @@ def solution(n, computers):
     return network
 
 
-print(solution(3, [[1, 1, 0], [1, 1, 0], [0, 0, 1]]))
+# print(solution(3, [[1, 1, 0], [1, 1, 0], [0, 0, 1]]))
+print(solution(3, [[1, 1, 0], [1, 1, 1], [0, 1, 1]]))
