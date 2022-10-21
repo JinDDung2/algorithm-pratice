@@ -5,11 +5,10 @@ def solution(maps):
     n = len(maps) # 세로
     m = len(maps[0]) # 가로
     
-    if maps[n-1][m-2] == 0 and maps[n-2][m-1] == 0:
-        return -1
-    else:
-        bfs(maps, n, m)
-    return maps[n-1][m-1]
+    answer = bfs(maps, n, m)
+    if answer == 1:
+        answer = -1
+    return answer
 
 
 def bfs(maps, n, m):
@@ -31,7 +30,7 @@ def bfs(maps, n, m):
                     maps[ny][nx] = maps[y][x]+1
                     queue.append([ny, nx])
                     # print(f"maps[x][y]={maps[nx][ny]}")
-    return maps
+    return maps[n-1][m-1]
 
 
 print(solution([[1,0,1,1,1],[1,0,1,0,1],[1,0,1,1,1],[1,1,1,0,1],[0,0,0,0,1]]))
