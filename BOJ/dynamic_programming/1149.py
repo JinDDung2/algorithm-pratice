@@ -20,7 +20,7 @@ for i in range(1, n):
     # blue
     dp[i][2] = dp[i][2] + min(dp[i-1][0], dp[i-1][1])
 
+# print(dp)
 print(min(dp[n-1]))
-print(dp)
 
 
