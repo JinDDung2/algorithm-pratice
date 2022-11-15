@@ -11,7 +11,7 @@ def solution(s):
             answer += s[i]
         else:
             temp += s[i]
-            # print(f"i={i}, temp={temp}")
+            print(f"i={i}, temp={temp}")
             if temp in dict:
                 answer += dict[temp]
                 temp = ""
@@ -23,4 +23,4 @@ s1 = "one4seveneight"
 s2 = "23four5six7"
 s3 = "2three45sixseven"
 s4 = "123"
-print(solution(s4))
+print(solution(s1))
