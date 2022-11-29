@@ -1,0 +1,23 @@
+# 더 맵게
+
+import heapq
+
+def solution(scoville, K):
+    answer = 0
+    heap = []
+    for i in scoville:
+        heapq.heappush(heap, i)
+    # print(heap)
+    
+    while heap[0] < K:
+        if len(heap) == 1:
+            return -1
+        
+        a = heapq.heappop(heap)
+        b = heapq.heappop(heap)
+        hot = a + 2*b
+        heapq.heappush(heap, hot)
+        # print(f"a={a}, b={b}, hot={hot}, heap={heap}")
+        answer += 1
+        
+    return answer
