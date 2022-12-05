@@ -10,9 +10,8 @@ def dfs():
     for i in range(1, n+1):
         if i not in lst:
             lst.append(i)
-            # print(f"i={i}, lst={lst}")
             dfs()
+            # print(f"i={i}, lst={lst}")
             lst.pop()
 
-
-print(dfs())
+dfs()
