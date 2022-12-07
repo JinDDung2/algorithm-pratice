@@ -23,4 +23,4 @@ def solution(jobs):
             now += 1
     
         
-    return int(answer / len(jobs))
+    return answer // len(jobs)
