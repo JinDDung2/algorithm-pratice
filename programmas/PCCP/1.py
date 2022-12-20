@@ -10,7 +10,6 @@ input_string	result
 
 def solution(input_string):
     dict = {}
-    numIdx = []
     
     for idx, char in enumerate(input_string):
         if char not in dict:
