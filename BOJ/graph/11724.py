@@ -24,6 +24,19 @@ for _ in range(m):
 vistied = [False] * (n+1)
 cnt = 0
 
+# bfs
+from collections import deque
+
+def bfs(start):
+    que = deque([start])
+    vistied[start]= True
+    while que:
+        node = que.popleft()
+        for i in graph[node]:
+            if not vistied[i]:
+                vistied[i] = True
+                que.append(i)
+
 for node in range(1, n+1):
     # 방문한 적 없는 곳을 방문해야함
     if not vistied[node]:
@@ -35,9 +48,8 @@ for node in range(1, n+1):
         # 연결된 곳
         else:
             # print(f"cnt2={cnt}")
-            dfs(node, 0)
+            # dfs(node, 0)
+            bfs(node)
             cnt += 1
 
 print(cnt)
-# bfs
-
