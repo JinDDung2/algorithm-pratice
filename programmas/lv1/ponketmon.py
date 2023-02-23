@@ -1,5 +1,11 @@
+# def solution(nums):
+#     max_cnt = len(nums) / 2
+#     answer = len(set(nums))
+    
+#     return min(max_cnt, answer)
+
 def solution(nums):
     max_cnt = len(nums) / 2
-    answer = len(set(nums))
+    cnt = len(set(nums))
     
-    return min(max_cnt, answer)
+    return min(max_cnt, cnt)
