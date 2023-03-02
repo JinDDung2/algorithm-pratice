@@ -55,4 +55,9 @@ def solution(files):
         
     return result
 
+# 정규식 사용해보기
+def solution2(files):
+    temp = [re.split(r"([0-9]+)", file) for file in files]
+    temp_sort = sorted(temp, key= lambda x:(x[0].lower(), int(x[1])))
     
+    return [''.join(s) for s in temp_sort]
