@@ -40,7 +40,7 @@ def check(str1, str2):
             return False
     return True
 
-def solution2(user_id, banned_id):
+def a_solution(user_id, banned_id):
     answer = set()
     result = [[] for i in range(len(banned_id))]
 
