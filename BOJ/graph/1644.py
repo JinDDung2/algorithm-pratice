@@ -1,7 +1,7 @@
 # S2 트리의 부모 찾기
 import sys
 from collections import deque
-sys.setrecursionlimit(10**6)
+
 input = sys.stdin.readline
 N = int(input())
 visited = [False] * (N+1)
@@ -15,20 +15,29 @@ for _ in range(N-1):
     tree[a].append(b)
 
 # bfs
-print(tree)
-def bfs(node, visited, tree):
-    q = deque([node])
-    visited[node] = True
-    while q:
-        n = q.popleft()
-        for i in tree[n]:
-            if not visited[i]:
-                visited[i] = True
-                p[i] = n
-                q.append(i)
-                # print(f"visited={visited}, p={p}, idx={n}, i={i}")
+# def bfs(node, visited, tree):
+#     q = deque([node])
+#     visited[node] = True
+#     while q:
+#         n = q.popleft()
+#         for i in tree[n]:
+#             if not visited[i]:
+#                 visited[i] = True
+#                 p[i] = n
+#                 q.append(i)
+#                 # print(f"visited={visited}, p={p}, idx={n}, i={i}")
 
-bfs(1, visited, tree)
+# dfs
+sys.setrecursionlimit(10**6)
+
+def dfs(node, visited, tree):
+    visited[node] = True
+    for i in tree[node]:
+        if not visited[i]:
+            p[i] = node
+            dfs(i, visited, tree)
+
+dfs(1, visited, tree)
 
 for i in range(2, N+1):
     print(p[i])
