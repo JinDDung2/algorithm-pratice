@@ -1,5 +1,3 @@
-# 연습문제 무인도 여행
-
 def solution(maps):
     answer = []
     visited = [[False] * len(maps[0]) for i in range(len(maps))]
@@ -15,8 +13,8 @@ def solution(maps):
     return answer
 
 def bfs(visited, i, j, maps):
-    dX = [0,1,-1,0]
-    dY = [1,0,0,-1]
+    dX = [-1,1,0,0]
+    dY = [0,0,-1,1]
     queue = [[i,j]]
     visited[i][j] = True
     cnt = 0
