@@ -1,4 +1,4 @@
-# 전화번호 목록
+# 코딩테스트 고득점 Kit [해쉬] 전화번호 목록
 p1 = ["119", "97674223", "1195524421"]
 p2 = ["123","456","789"]
 
@@ -30,6 +30,21 @@ def solution2(phone_book):
                 answer = False
     # print(hash_map)
     return answer
+
+def solution3(phone_book):
+    phone_lst = {}
+    
+    for phone in phone_book:
+        phone_lst[phone] = 1
+    
+    for sub in phone_lst:
+        temp = ""
+        for num in sub:
+            temp += num
+            if temp in phone_lst and temp != sub:
+                return False
+                
+    return True
 
 a = solution2(p1)
 print(a)
