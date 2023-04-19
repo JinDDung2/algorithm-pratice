@@ -1,3 +1,4 @@
+# 코딩테스트 고득점 Kit [해쉬] 베스트 앨범
 def solution(genres, plays):
     answer = []
     total_dict = {} # 장르마다 플레이 수
@@ -29,5 +30,33 @@ def solution(genres, plays):
 
 genres = ["classic", "pop", "classic", "classic", "pop"]
 plays = [500, 600, 150, 800, 2500]
+
+def try2(genres, plays):
+    answer = []
+    # 장르별 총 플레이 수 저장
+    genre_dict = {}
+    # 장르 기준으로 플레이 수와 인덱스 저장
+    play_dict = {}
+    
+    for i in range(len(genres)):
+        genre_dict[genres[i]] = genre_dict.get(genres[i], 0) + plays[i]
+        play_dict[genres[i]] = play_dict.get(genres[i], []) + [(plays[i], i)]
+    
+    # 장르 총 플레이수 내림차순
+    genre_dict = sorted(genre_dict.items(), key= lambda x:(-x[1]))
+    
+    # 장르별 플레이 수 내림차순
+    for k in play_dict:
+        play_dict[k].sort(key= lambda x:(-x[0]))
+    
+    # print("g", genre_dict)
+    # print("p", play_dict)
+    
+    # 총 장르 * 2
+    for k, v in genre_dict:
+        for p, i in play_dict[k][:2]:
+            answer.append(i)
+    
+    return answer
 
 print(solution(genres, plays))
