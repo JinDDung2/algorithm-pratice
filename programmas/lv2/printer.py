@@ -1,6 +1,5 @@
-# 프린터
+# 코딩테스트 고득점 Kit [스택/큐] 프린터
 from collections import deque
-
 
 def solution(priorities, location):
     answer = 0
@@ -15,6 +14,26 @@ def solution(priorities, location):
             if item[1] == location:
                 break
 
+    return answer
+
+def try2(priorities, location):
+    answer = 0
+    q = deque()
+    for i, v in enumerate(priorities):
+        q.append((v, i))
+    
+    if q[location] == max(q):
+        return 1
+    
+    while q:
+        v, i = q.popleft()
+        if q and v < max(q)[0]:
+            q.append((v, i))
+        else:
+            answer += 1
+            if i == location:
+                break
+        
     return answer
 
 
