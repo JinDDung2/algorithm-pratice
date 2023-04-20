@@ -1,4 +1,4 @@
-# 다리를 지나는 트럭
+# 코딩테스트 고득점 Kit [스택/큐] 다리를 지나는 트럭
 from collections import deque
 
 # 테스트 케이스5 시간초과 / 시간이 오래걸림
@@ -41,6 +41,26 @@ def solution2(bridge_length, weight, truck_weights):
         # print(f"answer={answer}, going={going_truck}, waiting={waiting_truck}")
     return answer
 
+def try2(bridge_length, weight, truck_weights):
+    
+    truck_weights = deque(truck_weights)
+    truck = deque([0] * bridge_length) # 다리 위 개수
+    trucks = 0 # 다리 위 무게
+    time = 0
+    
+    while truck:
+        time += 1
+        trucks -= truck.popleft()
+        
+        if truck_weights:
+            if trucks + truck_weights[0] <= weight:
+                num = truck_weights.popleft()
+                truck.append(num)
+                trucks += num
+            else:
+                truck.append(0)
+                
+    return time
 
 
 print(solution(2, 10, [7,4,5,6]))
