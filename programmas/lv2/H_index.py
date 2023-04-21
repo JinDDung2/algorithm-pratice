@@ -1,5 +1,4 @@
-# H-Index
-
+# 코딩테스트 고득점 Kit [정렬] H-Index
 def solution(citations):
     citations_sort = sorted(citations)
     
@@ -10,6 +9,19 @@ def solution(citations):
     
     if sum(citations) == 0:
         answer = 0
+    return answer
+
+def try2(citations):
+    answer = 0
+    citations.sort()
+    
+    if sum(citations) == 0:
+        return 0
+    
+    for idx, value in enumerate(citations):
+        if value >= len(citations) - idx:
+            answer = len(citations) - idx
+            break
     return answer
 
 
