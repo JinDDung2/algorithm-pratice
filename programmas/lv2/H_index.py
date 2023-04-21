@@ -1,4 +1,5 @@
 # 코딩테스트 고득점 Kit [정렬] H-Index
+
 def solution(citations):
     citations_sort = sorted(citations)
     
