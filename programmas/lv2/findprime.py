@@ -1,4 +1,4 @@
-# 소수찾기
+# 코딩테스트 고득점 Kit [완전탐색] 소수찾기
 from itertools import permutations
 
 def solution(numbers):
@@ -28,6 +28,30 @@ def is_prime(n):
     for i in range(2, int(n**0.5)+1):
         if n % i == 0:
             return False
+    return True
+
+def try2(numbers):
+    answer = set()
+    
+    for i in range(1, len(numbers)+1):
+        temp = set(permutations(numbers, i))
+        for t in temp:
+            num = "".join(t)
+            num = int(num)
+            if isPrime(num):
+                answer.add(num)
+    
+    print(answer)
+    return len(answer)
+
+def isPrime(num):
+    if num == 0 or num == 1:
+        return False
+    
+    for i in range(2, int(num**0.5)+1):
+        if num % i == 0:
+            return False
+    
     return True
 
 
