@@ -1,4 +1,4 @@
-# 구명보트 
+# 코딩테스트 고득점 Kit [탐욕법] 구명보트 
 # 정확성 75/75 | 효율성 20/25
 def solution(people, limit):
     answer = 0
@@ -27,3 +27,19 @@ def solution(people, limit):
         b -= 1
         # print(f"a={a}, b={b}")
     return len(people) - two
+
+def try2(people, limit):
+    answer = 0
+    people.sort()
+    
+    start = 0
+    end = len(people)-1
+    cnt = 0
+    while start <= end:
+        if (people[start] + people[end]) <= limit:
+            start += 1
+            
+        end -= 1
+        cnt += 1
+        # print(f"s={start}, e={end}, c={cnt}")
+    return cnt
