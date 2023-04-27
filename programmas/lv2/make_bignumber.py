@@ -1,4 +1,4 @@
-# 큰 수 만들기
+# 코딩테스트 고득점 Kit [탐욕법] 큰 수 만들기
 def solution(number, k):
     answer = []
     for num in number:
@@ -21,3 +21,25 @@ def solution(number, k):
     # print(result)
     
     return ''.join(result)
+
+def try2(number, k):    
+    lst = []
+    for num in number:
+        if not lst:
+            lst.append(num)
+            continue
+        
+        if k > 0:
+            while num > lst[-1]:
+                lst.pop()
+                k -= 1
+                if not lst or k == 0:
+                    break
+            
+        lst.append(num)
+    
+    if k > 0:
+        for _ in range(k):
+            lst.pop()
+            
+    return ''.join(lst)
