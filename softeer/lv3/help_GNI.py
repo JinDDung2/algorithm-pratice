@@ -4,6 +4,7 @@ import sys
 from collections import deque
 input = sys.stdin.readline
 
+# 8 9 10 fail
 def raining():
     global rains
     temp = []
