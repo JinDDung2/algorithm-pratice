@@ -1,8 +1,8 @@
-#[G4] 연구소
+# [G4] 연구소
 
 import sys
 import copy
-from itertools import permutations
+from itertools import combinations
 from collections import deque
 
 input = sys.stdin.readline
@@ -17,9 +17,8 @@ def countZero(data: list) -> int:
     
     return count
 
-def bfs() -> list:
-    global result
-    new_data = copy.deepcopy(data)
+def bfs(d) -> list:
+    new_data = copy.deepcopy(d)
     que = deque()
     for v in virus:
         que.append(v)
@@ -37,7 +36,13 @@ def bfs() -> list:
                 new_data[ny][nx] = 2
                 que.append([ny, nx])
     
-    result = max(result, countZero(new_data))
+    count = 0
+    for i in range(N):
+        for j in range(M):
+            if data[i][j] == 0:
+                count += 1
+    
+    return new_data
 
 
 data = [list(map(int, input().split())) for _ in range(N)]
@@ -55,30 +60,16 @@ for i in range(N):
         elif data[i][j] == 2:
             virus.append([i, j])
 
-def wall_construct(wall_cnt):
-    # 벽 3개 설치 완료 시, 바이러스 전파
-    if wall_cnt == 3:
-        bfs()
-        return
-    # 벽을 설치할 수 있는 모든 경우의 수 확인
-    for n in range(N):
-        for m in range(M):
-            if data[n][m] == 0:
-                data[n][m] = 1 # 벽 설치
-                wall_construct(wall_cnt + 1)
-                data[n][m] = 0 # 새로운 조합 만들기 위해 초기화
+for c in combinations(w, 3):
+    one, two, three = c[0], c[1], c[2]
+    data[one[0]][one[1]] = 1
+    data[two[0]][two[1]] = 1
+    data[three[0]][three[1]] = 1
+    # bfs, 개수 셈
+    d = bfs(data)
+    result = max(result, countZero(d))
+    data[one[0]][one[1]] = 0
+    data[two[0]][two[1]] = 0
+    data[three[0]][three[1]] = 0
 
-wall_construct(0)
 print(result)
-
-# for c in permutations(w, 3):
-#     one, two, three = c[0], c[1], c[2]
-#     data[one[0]][one[1]] = 1
-#     data[two[0]][two[1]] = 1
-#     data[three[0]][three[1]] = 1
-#     # bfs, 개수 셈
-#     d = bfs()
-#     result = max(result, countZero(d))
-#     data[one[0]][one[1]] = 0
-#     data[two[0]][two[1]] = 0
-#     data[three[0]][three[1]] = 0
