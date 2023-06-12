@@ -4,6 +4,19 @@ input = sys.stdin.readline
 
 N, M = map(int, input().split())
 data = list(map(int, input().split()))
+result = 0
+
+arr = [0] * 11
+for d in data:
+    arr[d] += 1
+
+for i in range(1, M+1):
+    N -= arr[i]
+    result += ( arr[i] * N )
+
+print(result)
+
+'''
 # print(f"N={N}, M={M}, data={data}")
 
 cnt = 0
@@ -13,6 +26,8 @@ for i in range(N):
             cnt += 1
 
 print(cnt)
+
+'''
 
 # 5 3
 # 1 3 2 3 2
