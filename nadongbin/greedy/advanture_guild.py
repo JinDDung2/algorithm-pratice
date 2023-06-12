@@ -4,11 +4,13 @@ input = sys.stdin.readline
 N = int(input().rstrip())
 data = list(map(int, input().split()))
 
-data.sort(reverse= True)
+data.sort()
 idx = 0
 count = 0
-while idx < len(data):
+while True:
     idx += data[idx]
+    if idx >= len(data):
+        break
     count += 1
 
 print(count)
