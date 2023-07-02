@@ -12,7 +12,7 @@ for d in data:
         if j-d >= 0:
             dp[j] += dp[j-d]
 
-print(dp)
+print(dp[-1])
 
 # test 1 -> 10
 # 3 10
