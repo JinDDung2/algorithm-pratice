@@ -1,7 +1,7 @@
 # [S5] 폴리오미노
 
-# X개수로 리스트를 나눔
-# for문 반복 -> 2로 나눌 때 몫이 홀수 -> BB / 짝수 -> AAAA -> 3이상일 경우 AAAA먼저
+# X개수, .개수로 리스트 넣기
+# for문 반복 -> "AAAA"* 4로 나눈 몫 / "BB"* 4로나눈 나머지 / 4로 나눈 나머지가 1, 3일경우 result = -1
 import sys
 input = sys.stdin.readline
 S = input()
