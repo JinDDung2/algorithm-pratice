@@ -13,20 +13,17 @@ data = [int(input()) for _ in range(j)]
 count = 0
 left = 1
 right = left+(M-1)
-if M == 1:
-    for i in range(1, len(data)):
-        count += abs(data[i] - data[i-1])
-else:
-    for i in range(len(data)):
-        if left <= data[i] <= right:
-            continue
-        if data[i] > right:
-            count += data[i] - right
-            right = data[i]
-            left = right - (M-1)
-        if data[i] < left:
-            count += left - data[i]
-            left = data[i]
-            right = left + (M-1)
+
+for i in range(len(data)):
+    if left <= data[i] <= right:
+        continue
+    if data[i] > right:
+        count += data[i] - right
+        right = data[i]
+        left = right - (M-1)
+    if data[i] < left:
+        count += left - data[i]
+        left = data[i]
+        right = left + (M-1)
 
 print(count)
