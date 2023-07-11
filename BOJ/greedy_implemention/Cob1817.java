@@ -18,7 +18,7 @@ public class Cob1817 {
             return ;
         }
 
-        Stack stack = new Stack();
+        Stack<Integer> stack = new Stack<>();
         st = new StringTokenizer(br.readLine());
         for(int i =0; i<n; i++) {
             stack.add(Integer.valueOf(st.nextToken()));
