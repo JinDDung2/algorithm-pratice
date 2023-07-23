@@ -12,30 +12,43 @@ def solution(s: str, dict: list):
                 for k in range(j, j+len(d)):
                     visited[k] = True
     
-    tempT = ''
-    tempF = ''
-    result = []
-    for i in range(len(s)):
-        if visited[i]:
-            if tempF:
-                result.append(tempF)
-                tempF = ''
-            tempT += s[i]
-        else:
-            if tempT:
-                tempT = pre + tempT + suf
-                result.append(tempT)
-                tempT = ''
-            tempF += s[i]
+    temp = ''
+    idx = 0
+    while idx < len(s):
+        if not visited[idx]:
+            temp += s[idx]
+            idx += 1
+            continue
+        temp += pre
+        while idx < len(s) and visited[idx]:
+            temp += s[idx]
+            idx += 1
+        temp += suf
     
-    if tempT:
-        tempT = pre + tempT + suf
-        result.append(tempT)
-    if tempF:
-        result.append(tempF)
+    return temp
+    # tempT = ''
+    # tempF = ''
+    # result = []
+    # for i in range(len(s)):
+    #     if visited[i]:
+    #         if tempF:
+    #             result.append(tempF)
+    #             tempF = ''
+    #         tempT += s[i]
+    #     else:
+    #         if tempT:
+    #             tempT = pre + tempT + suf
+    #             result.append(tempT)
+    #             tempT = ''
+    #         tempF += s[i]
     
-    return ''.join(result)
-                    
+    # if tempT:
+    #     tempT = pre + tempT + suf
+    #     result.append(tempT)
+    # if tempF:
+    #     result.append(tempF)
+    
+    # return ''.join(result)
 
 print(solution("abcxyz123", ["abc", "123"]))
 print(solution("abcxyz123", ["abc", "xyz"]))
