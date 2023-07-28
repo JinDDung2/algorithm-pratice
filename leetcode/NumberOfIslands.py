@@ -1,5 +1,8 @@
 # Number of Islands -> Time Limit Exceeded
 
+# practice 2
+
+# practice 1
 from collections import deque
 
 class Solution:

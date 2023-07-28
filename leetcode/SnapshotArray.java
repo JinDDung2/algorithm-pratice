@@ -2,6 +2,10 @@ package leetcode;
 
 import java.util.*;
 
+// practice 2
+
+// chance 1
+/*
 class SnapshotArray {
     TreeMap<Integer, Integer>[] map;
     int curSnap;
@@ -27,6 +31,7 @@ class SnapshotArray {
         return map[index].floorEntry(snap_id).getValue();
     }
 }
+*/
 
 /**
  * Your SnapshotArray object will be instantiated and called as such:
