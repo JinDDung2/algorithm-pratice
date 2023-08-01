@@ -10,7 +10,7 @@ input = sys.stdin.readline
 N = int(input())
 data = [list(map(int, input().rstrip())) for _ in range(N)]
 visited = [[False] * N for _ in range(N)]
-dy = [0, 1, 0, 1]
+dy = [0, 1, 0, -1]
 dx = [1, 0, -1, 0]
 move_list = []
 
