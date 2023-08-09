@@ -5,6 +5,10 @@ input = sys.stdin.readline
 N = int(input())
 # A 작업시간, B 작업시간, A->B이동시간, B->A 이동시간
 A, B, AtoB, BtoA = [0]*(N+1), [0]*(N+1), [0]*(N+1), [0]*(N+1)
+
+# test 2 -> 동일함
+
+# test 1
 for i in range(1, N):
     Ai, Bi, AtoB[i], BtoA[i] = map(int, input().split())
 
