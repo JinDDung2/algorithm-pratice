@@ -7,6 +7,26 @@ input = sys.stdin.readline
 N = int(input())
 heap = []
 
+# test 2
+for _ in range(N):
+    # 빨리 끝날수록 많은 회의실 배정 -> end 기준 정렬
+    s, e = map(int,input().split())
+    heapq.heappush(heap, (e, s)) # O(Nlog(N))
+
+# print(heap)
+time = heapq.heappop(heap)[0]
+result = 1
+
+while heap:
+    end, start = heapq.heappop(heap)
+    if time <= start:
+        result += 1
+        time = end
+
+print(result)
+
+
+'''test1
 # O(NlogN)
 for _ in range(N):
     start, end = map(int, input().split())
@@ -22,6 +42,7 @@ while heap:
         now = end
 
 print(count)
+'''
 
 # 시간초과
 '''
