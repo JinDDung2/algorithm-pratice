@@ -4,7 +4,7 @@ import sys
 input = sys.stdin.readline
 
 N, M = map(int, input().split())
-w = [0] + list(map(int, input().split()))
+W = [0] + list(map(int, input().split()))
 friends = [[] for _ in range(N+1)]
 
 def isStronger(power, lst):
