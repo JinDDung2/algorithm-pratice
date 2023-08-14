@@ -25,6 +25,7 @@ for p in permutations(data, N):
 
 print(result)
 
+<<<<<<< HEAD
 '''java
 import java.util.*;
 import java.io.*;
@@ -84,6 +85,8 @@ public class Main {
 }
 '''
 
+=======
+>>>>>>> 17475ae1aa38099db90c594065d57465e509fbf9
 '''test 1
 N, M, K = map(int, input().split())
 weights = list(map(int, input().split()))
