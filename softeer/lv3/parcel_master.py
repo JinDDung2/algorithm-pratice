@@ -1,9 +1,90 @@
 # 택배 마스터 광우
 
 import sys
-input = sys.stdin.readline
 from itertools import permutations
+input = sys.stdin.readline
 
+N, M, K = map(int, input().split())
+data = list(map(int, input().split()))
+result = sys.maxsize
+
+for p in permutations(data, N):
+    workCount = 0
+    bucket = 0
+    idx = 0
+    tempWeight = 0
+    while workCount < K:
+        if bucket + p[idx % N] <= M:
+            bucket += p[idx % N]
+            idx += 1
+        else:
+            workCount += 1
+            tempWeight += bucket
+            bucket = 0
+    result = min(result, tempWeight)
+
+print(result)
+
+'''java
+import java.util.*;
+import java.io.*;
+
+public class Main {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int M = sc.nextInt();
+        int K = sc.nextInt();
+
+        int[] data = new int[N];
+        for (int i=0; i<N; i++) {
+            data[i] = sc.nextInt();
+        }
+
+        int result = Integer.MAX_VALUE;
+        List<List<Integer>> permutations = new ArrayList<>();
+        makePermutations(data, new ArrayList<>(), new boolean[N], permutations);
+
+        for (List<Integer> permutation : permutations) {
+            int workCount = 0;
+            int bucket = 0;
+            int idx = 0;
+            int tempResult = 0;
+            while (workCount < K) {
+                if (bucket + permutation.get(idx % N) <= M) {
+                    bucket += permutation.get(idx % N);
+                    idx++;
+                } else {
+                    workCount++;
+                    tempResult += bucket;
+                    bucket = 0;
+                }
+            }
+
+            result = Math.min(result, tempResult);
+        }
+        System.out.println(result);
+    }
+
+    public static void makePermutations(int[] data, List<Integer> permutation, boolean[] visited, List<List<Integer>> permutations) {
+        if (permutation.size() == data.length) {
+            permutations.add(new ArrayList<>(permutation));
+        }
+
+        for (int i = 0; i < data.length; i++) {
+            if (!visited[i]) {
+                visited[i] = true;
+                permutation.add(data[i]);
+                makePermutations(data, permutation, visited, permutations);
+                visited[i] = false;
+                permutation.remove(permutation.size() - 1);
+            }
+        }
+    }
+}
+'''
+
+'''test 1
 N, M, K = map(int, input().split())
 weights = list(map(int, input().split()))
 
@@ -31,3 +112,4 @@ for info in weights_info:
     result = min(result, temp_weight)
 
 print(result)
+'''
