@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+// test 2
+// test 1
 public class SisoPartner {
     public long solution(int[] weights) {
         long answer = 0;

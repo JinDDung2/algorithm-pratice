@@ -1,5 +1,7 @@
 package programmas.java.lv2;
 
+// test 2
+// test 1
 public class NormalSquare {
     public long solution(int w, int h) {
         if (w < h) {
