@@ -11,21 +11,33 @@ public class MaximalSquare_221 {
             }
         }
 
-        for (int j = 0; j < dp[0].length; j++) {
-            if (matrix[0][j] == '1') {
-                dp[0][j] = 1;
-                result = 1;
-            }
-        }
-
-        for (int i = 1; i < dp.length; i++) {
-            for (int j = 1; j < dp[0].length; j++) {
+        for (int i = 0; i < dp.length; i++) {
+            for (int j = 0; j < dp[0].length; j++) {
                 if (matrix[i][j] == '1') {
-                    dp[i][j] = Math.min(dp[i - 1][j - 1], Math.min(dp[i - 1][j], dp[i][j - 1])) + 1;
+                    dp[i][j] = 1 + ((i == 0 || j == 0) ? 0
+                            : Math.min(dp[i - 1][j - 1],
+                                    Math.min(dp[i - 1][j], dp[i][j - 1])));
                     result = Math.max(result, dp[i][j]);
                 }
             }
         }
+
+        // for (int j = 0; j < dp[0].length; j++) {
+        // if (matrix[0][j] == '1') {
+        // dp[0][j] = 1;
+        // result = 1;
+        // }
+        // }
+
+        // for (int i = 1; i < dp.length; i++) {
+        // for (int j = 1; j < dp[0].length; j++) {
+        // if (matrix[i][j] == '1') {
+        // dp[i][j] = Math.min(dp[i - 1][j - 1], Math.min(dp[i - 1][j], dp[i][j - 1])) +
+        // 1;
+        // result = Math.max(result, dp[i][j]);
+        // }
+        // }
+        // }
 
         // for (int[] d : dp) {
         // System.out.println(Arrays.toString(d));
