@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class LetterCombinationsOfPhoneNumber {
+public class LetterCombinationsOfPhoneNumber_17 {
     Map<Character, String> map = new HashMap<>();
 
     public List<String> letterCombinations(String digits) {
