@@ -1,43 +1,29 @@
 package programmas.java.lv2;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Collections;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
 public class DefenseGame {
     public int solution(int n, int k, int[] enemy) {
+        // 일단 빼. 그리고 부족할 때 큰 값을 롤백시켜주는 방식
         int answer = 0;
-        Map<Integer, Integer> map = getBigNum(enemy, k);
+        Queue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
 
-        for (int e : enemy) {
-            if (k > 0 && map.containsKey(e) && map.get(e) > 0) {
-                map.put(e, map.get(e) - 1);
-                k--;
-                answer++;
-                continue;
-            }
-
-            if (n < e) {
+        for (int i = 0; i < enemy.length; i++) {
+            if (n < enemy[i] && k == 0) {
                 break;
             }
+            pq.offer(enemy[i]);
 
-            n -= e;
+            if (n < enemy[i]) {
+                n += pq.poll();
+                k--;
+            }
+
+            n -= enemy[i];
             answer++;
         }
-
         return answer;
-    }
-
-    public Map<Integer, Integer> getBigNum(final int[] enemy, int k) {
-        Map<Integer, Integer> map = new HashMap<>();
-
-        int[] newArray = Arrays.copyOf(enemy, enemy.length);
-        Arrays.sort(newArray);
-
-        for (int i = enemy.length - 1; i > enemy.length - 1 - k; i--) {
-            map.put(newArray[i], map.getOrDefault(newArray[i], 0) + 1);
-        }
-
-        return map;
     }
 }
