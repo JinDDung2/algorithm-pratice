@@ -13,6 +13,7 @@ public class GroupAnagrams_49 {
             Arrays.sort(charArray);
             String newWord = String.valueOf(charArray);
 
+            // result.putIfAbsent(newWord, new ArrayList<>());
             if (!result.containsKey(newWord)) {
                 result.put(newWord, new ArrayList<>());
             }
