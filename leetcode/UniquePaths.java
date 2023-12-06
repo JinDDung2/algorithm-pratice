@@ -1,8 +1,24 @@
 package leetcode;
 
+import java.util.Arrays;
+
 // 62. Unique Paths
 public class UniquePaths {
-    public int uniquePaths(int m, int n) {
+    public int uniquePathsV2(int m, int n) {
+        int[] prev = new int[n];
+        Arrays.fill(prev, 1);
+
+        for (int i = 1; i < m; i++) {
+            int[] next = new int[n];
+            for (int j = 0; j < n; j++) {
+                next[j] = j == 0 ? 1 : next[j - 1] + prev[i];
+            }
+            prev = next;
+        }
+        return prev[n - 1];
+    }
+
+    public int uniquePathsV1(int m, int n) {
         int[][] dp = new int[m][n];
 
         for (int i = 0; i < m; i++) {
