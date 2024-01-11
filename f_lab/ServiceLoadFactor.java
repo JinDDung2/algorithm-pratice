@@ -3,30 +3,58 @@ package f_lab;
 import java.util.*;
 
 public class ServiceLoadFactor {
-    public static void main(String[] args) {
-        String[] serviceArray = { "D=", "C=D", "B=C", "A=B,C" };
-        String entryPoint = "A";
-        ServiceLoadFactor serviceLoadFactor = new ServiceLoadFactor();
-
-        serviceLoadFactor.getLoadFactors(serviceArray, entryPoint);
-    }
-
     // 서비스*개수 포매팅
-    // 서비스 리스트 파싱 후 맵에 {service: [dependencies]}
+    // {start, {targets}}, {service, price}, {service, indegrees}
     public String[] getLoadFactors(String[] service_list, String entrypoint) {
         Map<String, Set<String>> map = new HashMap<>();
         Map<String, Integer> loadMap = new HashMap<>();
         Map<String, Integer> indegree = new HashMap<>();
 
         for (String service : service_list) {
-            String[] data = service.split("=");
-            String start = data[0];
-            if (data.length == 1)
+            String[] arr = service.split("=");
+            String from = arr[0];
+            map.putIfAbsent(from, new HashSet<>());
+            loadMap.put(from, 0);
+
+            if (arr.length == 1)
                 continue;
-            map.putIfAbsent(start, new HashSet<>());
-            loadMap.put(start, 0);
+            String[] toArr = arr[1].split(",");
+
+            for (String to : toArr) {
+                map.get(from).add(to);
+                loadMap.put(to, 0);
+                indegree.put(to, indegree.getOrDefault(to, 0) + 1);
+            }
         }
-        return new String[] {};
+
+        loadMap.put(entrypoint, 1);
+        Queue<String> que = new LinkedList<>();
+        que.add(entrypoint);
+
+        while (!que.isEmpty()) {
+            String from = que.poll();
+
+            if (map.containsKey(from)) {
+                for (String to : map.get(from)) {
+                    loadMap.put(to, loadMap.get(from) + loadMap.get(to));
+                    indegree.put(to, indegree.get(to) - 1);
+                    if (indegree.get(to) == 0) {
+                        que.add(to);
+                    }
+                }
+            }
+        }
+
+        List<String> result = new ArrayList<>();
+        for (Map.Entry<String, Integer> entry : loadMap.entrySet()) {
+            if (!map.containsKey(entry.getKey()) || entry.getValue() == 0)
+                continue;
+            result.add(entry.getKey() + "*" + entry.getValue());
+        }
+
+        Collections.sort(result);
+
+        return result.toArray(new String[result.size()]);
     }
 
 }
