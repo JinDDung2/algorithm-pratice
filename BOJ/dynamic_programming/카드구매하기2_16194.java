@@ -3,6 +3,7 @@ package BOJ.dynamic_programming;
 import java.io.*;
 import java.util.*;
 
+// [S1] 16194. 카드구매하기 2
 public class 카드구매하기2_16194 {
     // 같은 카드 여러번 구매 가능
     // 현재 N개 카드팩 구매 단계
