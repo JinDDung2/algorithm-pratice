@@ -59,9 +59,9 @@ public class 미세먼지안녕_17144 {
 
             operateAirCleaner(data);
 
-            for (int[] d : data) {
-                System.out.println(Arrays.toString(d));
-            }
+            // for (int[] d : data) {
+            // System.out.println(Arrays.toString(d));
+            // }
         }
 
         int result = getAmountOfFineDust(data);
@@ -124,7 +124,7 @@ public class 미세먼지안녕_17144 {
             data[0][i] = data[0][i + 1];
         }
         // 상
-        for (int i = 0; i < top - 1; i++) {
+        for (int i = 0; i < top; i++) {
             data[i][c - 1] = data[i + 1][c - 1];
         }
         // 우
