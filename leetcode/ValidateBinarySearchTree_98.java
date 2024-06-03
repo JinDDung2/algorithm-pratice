@@ -1,22 +1,5 @@
 package leetcode;
 
-import javax.swing.tree.TreeNode;
-
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- * int val;
- * TreeNode left;
- * TreeNode right;
- * TreeNode() {}
- * TreeNode(int val) { this.val = val; }
- * TreeNode(int val, TreeNode left, TreeNode right) {
- * this.val = val;
- * this.left = left;
- * this.right = right;
- * }
- * }
- */
 
 public class ValidateBinarySearchTree_98 {
     public boolean isValidBST(TreeNode root) {
@@ -31,5 +14,24 @@ public class ValidateBinarySearchTree_98 {
             return false;
 
         return isValid(root.left, minVal, root.val) && isValid(root.right, root.val, maxVal);
+    }
+
+    static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode() {
+        }
+
+        TreeNode(int val) {
+            this.val = val;
+        }
+
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
     }
 }
