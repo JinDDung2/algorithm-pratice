@@ -1,3 +1,5 @@
+package leetcode;
+
 class Count_Pairs_That_Form_a_Complete_Day_II_3185 {
     public long countCompleteDayPairs(int[] hours) {
         // 배열 담을 24개 공간 0~23시

@@ -1,7 +1,5 @@
 package programmas.dev;
 
-import java.util.*;
-
 // 2021 Dev-Matching:웹 백엔드 개발 로또의 최고 순위와 최저 순위
 
 public class 로또의최고순위와최저순위 {

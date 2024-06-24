@@ -1,22 +1,24 @@
-class Solution {
-    public int longestOnes(int[] nums, int k) {
-        int l = 0, r = 0, zeros = 0, result = 0;
+package leetcode;
 
-        while (r < nums.length) {
+class Max_Consecutive_Ones_III_1004 {
+    public int longestOnes(int[] nums, int k) {
+        int n = nums.length;
+        int zeros = 0;
+        int l = 0, r = 0;
+
+        while (r < n) {
             if (nums[r] == 0) {
                 zeros++;
             }
             r++;
             if (zeros > k) {
-                while (zeros > k) {
-                    if (nums[l] == 0) {
-                        zeros--;
-                    }
-                    l++;
+                if (nums[l] == 0) {
+                    zeros--;
                 }
+                l++;
             }
-            result = Math.max(result, r - l);
         }
-        return result;
+
+        return r - l;
     }
 }

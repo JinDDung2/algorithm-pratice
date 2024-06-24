@@ -1,7 +1,5 @@
 package programmas.kakao;
 
-import java.util.*;
-
 // 2020 KAKAO BLIND RECRUITMENT 가사 검색
 
 public class 가사검색 {
