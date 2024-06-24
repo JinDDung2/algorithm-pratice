@@ -1,4 +1,4 @@
-package review.bankpretty;
+package coding_test.nonghyub2024_high;
 
 import java.util.*;
 

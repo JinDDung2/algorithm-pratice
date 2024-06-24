@@ -1,4 +1,4 @@
-package nhncommerce2023;
+package coding_test.nhncommerce2023_low;
 
 import java.util.*;
 

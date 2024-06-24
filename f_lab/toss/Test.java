@@ -1,4 +1,4 @@
-package review.toss;
+package f_lab.toss;
 
 import java.util.Arrays;
 

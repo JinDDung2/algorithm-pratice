@@ -1,4 +1,4 @@
-package programmas.naver2024;
+package coding_test.naver2024_high;
 
 import java.util.*;
 
