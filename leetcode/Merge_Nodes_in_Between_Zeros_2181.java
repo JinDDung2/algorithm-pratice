@@ -1,3 +1,5 @@
+package leetcode;
+
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -8,7 +10,7 @@
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
-class Solution {
+class Merge_Nodes_in_Between_Zeros_2181 {
     public ListNode mergeNodes(ListNode head) {
         ListNode result = head;
         ListNode node = head.next;
