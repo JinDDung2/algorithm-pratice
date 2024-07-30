@@ -1,5 +1,7 @@
 package leetcode;
 
+import java.util.*;
+
 public class Dota2_Senate_649 {
 
   public String predictPartyVictory(String senate) {
