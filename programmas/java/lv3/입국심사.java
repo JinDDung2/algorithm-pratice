@@ -1,4 +1,4 @@
-package programmas;
+package programmas.java.lv3;
 
 class 입국심사 {
 
