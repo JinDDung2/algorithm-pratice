@@ -1,4 +1,4 @@
-package BOJ.two_pointer;
+package BOJ;
 
 import java.io.*;
 import java.util.*;

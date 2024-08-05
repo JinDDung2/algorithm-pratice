@@ -1,16 +1,17 @@
-package BOJ.que;
+package BOJ;
 
-import java.io.*;
 import java.util.*;
+import java.io.*;
 
-public class 최소힙_1927 {
+public class 최대힙_11279 {
 
     static int N;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         N = Integer.parseInt(br.readLine());
-        PriorityQueue<Integer> pq = new PriorityQueue<>();
+
+        PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> b- a);
 
         while (N-- > 0) {
             int data = Integer.parseInt(br.readLine());
@@ -25,6 +26,7 @@ public class 최소힙_1927 {
                 System.out.println(pq.poll());
             }
         }
+        br.close();
     }
 
 }

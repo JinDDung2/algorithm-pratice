@@ -1,4 +1,4 @@
-package BOJ.dynamic_programming;
+package BOJ;
 
 import java.io.*;
 import java.util.*;
