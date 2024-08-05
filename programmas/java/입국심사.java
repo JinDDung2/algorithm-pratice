@@ -1,6 +1,9 @@
 package programmas;
 
 class 입국심사 {
+
+    // 파라메트릭 서치
+
     public long solution(int n, int[] times) {
         
         long l = Long.MAX_VALUE, r = 0;
@@ -12,7 +15,7 @@ class 입국심사 {
         
         r *= n;
         
-        while (l <= r) {
+        while (l < r) {
             long m = l + (r - l) / 2;
             long temp = 0;
             
@@ -21,7 +24,7 @@ class 입국심사 {
             }
             
             if (temp >= n) {
-                r = m - 1;
+                r = m;
             } else {
                 l = m + 1;
             }
