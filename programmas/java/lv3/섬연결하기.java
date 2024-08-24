@@ -2,7 +2,7 @@ package programmas.java.lv3;
 
 import java.util.Arrays;
 
-// [lv3] 섬 연결하기
+// [lv3] 섬 연결하기 미완
 public class 섬연결하기 {
 
     int[] parent;
