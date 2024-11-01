@@ -2,7 +2,6 @@ package test.jemalloc;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.WeakHashMap;
 
 /**
  * jemalloc은 매번 메모리를 할당하고 해제하는 대신, 한 번 할당된 메모리를 캐싱해 두고 재사용하는 전략

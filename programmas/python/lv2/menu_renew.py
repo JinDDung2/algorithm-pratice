@@ -1,7 +1,8 @@
 # 2021 KAKAO BLIND RECRUITMENT 메뉴 리뉴얼
 
-from itertools import combinations
 from collections import Counter
+from itertools import combinations
+
 
 def solution(orders, course):
     answer = []

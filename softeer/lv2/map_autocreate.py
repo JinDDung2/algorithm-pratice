@@ -1,7 +1,7 @@
 # 지도 자동 구축
 
-import sys
 import math
+import sys
 
 # test 2
 input = sys.stdin.readline

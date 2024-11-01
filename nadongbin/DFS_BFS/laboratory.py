@@ -1,8 +1,9 @@
 # 연구소
-import sys
 import copy
+import sys
 from collections import deque
 from itertools import combinations
+
 input = sys.stdin.readline
 
 N, M = map(int, input().split())
