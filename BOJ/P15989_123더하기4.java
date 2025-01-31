@@ -39,10 +39,41 @@ public class P15989_123더하기4 {
 
             return sb.toString();
         }
+
+        String solutionV2() throws IOException {
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            int T = Integer.parseInt(br.readLine());
+            int[] result = new int[T];
+            int maxNum = 0;
+
+            for (int i = 0; i < T; i++) {
+                result[i] = Integer.parseInt(br.readLine());
+                maxNum = Math.max(maxNum, result[i]);
+            }
+
+            // dp[i][j]: i를 1~j 숫자로 나타내는 방법의 수
+            int[] dp = new int[maxNum + 1];
+            dp[0] = 1;
+
+            for (int j = 1; j <= 3; j++) {
+                for (int i = j; i <= maxNum; i++) {
+                    dp[i] += dp[i - j];
+                }
+            }
+            System.out.println(Arrays.toString(dp));
+
+            StringBuilder sb = new StringBuilder();
+            for (int num : result) {
+                sb.append(dp[num]).append("\n");
+            }
+
+            return sb.toString();
+        }
     }
 
     public static void main(String[] args) throws IOException {
         Problem p = new Problem();
-        System.out.println(p.solution());
+//        System.out.println(p.solution());
+        System.out.println(p.solutionV2());
     }
 }
