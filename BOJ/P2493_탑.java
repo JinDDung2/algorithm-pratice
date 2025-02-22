@@ -6,14 +6,14 @@ import java.util.*;
 public class P2493_탑 {
 
     static class Problem {
-        int[] solution() throws IOException {
+        String solution() throws IOException {
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             int N = Integer.parseInt(br.readLine());
             int[] data = Arrays.stream(br.readLine().split(" "))
                     .mapToInt(Integer::parseInt)
                     .toArray();
 
-            int[] result = new int[N];
+            StringBuilder sb = new StringBuilder();
 
             Stack<int[]> stack = new Stack<>();
             for (int i = 0; i < N; i++) {
@@ -25,21 +25,21 @@ public class P2493_탑 {
                 }
 
                 if (!stack.isEmpty()) { // 신호 받을 탑이 있는 경우 -> 해당 탑의 인덱스 추가
-                    result[i] = stack.peek()[1];
+                    sb.append(stack.peek()[1]).append(" ");
                 } else { // 신호 받을 탑이 없는 경우 -> 0
-                    result[i] = 0;
+                    sb.append("0 ");
                 }
 
                 // 스택에 탑 추가하기
                 stack.push(new int[]{data[i], i + 1});
             }
 
-            return result;
+            return sb.toString().trim();
         }
     }
 
     public static void main(String[] args) throws IOException {
         Problem p = new Problem();
-        System.out.println(Arrays.toString(p.solution()));
+        System.out.println(p.solution());
     }
 }
