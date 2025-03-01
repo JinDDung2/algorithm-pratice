@@ -51,6 +51,10 @@ public class P6549_히스토그램에서가장큰직사각형 {
         }
     }
 
+    String solutionV2() {
+        return "";
+    }
+
     public static void main(String[] args) throws IOException {
         Problem p = new Problem();
         System.out.println(p.solution());
