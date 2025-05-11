@@ -1,4 +1,4 @@
-package BOJ.길라잡이.parametric;
+package BOJ.길라잡이.dp;
 
 import java.io.*;
 import java.util.*;
