@@ -2,6 +2,7 @@ package programmas.java.lv2;
 
 import java.util.Arrays;
 
+// 2025 프로그래머스 코드챌린지 2차 예선 - 완점 범죄
 public class PerfectCrime {
 
     final int INF = 1_000_000_000;
