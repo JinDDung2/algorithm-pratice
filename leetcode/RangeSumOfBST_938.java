@@ -39,4 +39,17 @@ public class RangeSumOfBST_938 {
 
         return result;
     }
+
+    public int rangeSumBSTV2(TreeNode root, int low, int high) {
+        if (root == null) return 0;
+
+        if (root.val >= low && root.val <= high) {
+            result += root.val;
+        }
+
+        if (root.val > low) rangeSumBSTV2(root.left, low, high);
+        if (root.val < high) rangeSumBSTV2(root.right, low, high);
+
+        return result;
+    }
 }
