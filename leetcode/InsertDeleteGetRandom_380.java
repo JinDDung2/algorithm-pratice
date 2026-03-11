@@ -10,6 +10,8 @@ import java.util.*;
  * int param_3 = obj.getRandom();
  */
 
+
+// 380. Insert Delete GetRandom O(1)
 public class InsertDeleteGetRandom_380 {
 
     List<Integer> list;
@@ -23,29 +25,34 @@ public class InsertDeleteGetRandom_380 {
     }
 
     public boolean insert(int val) {
-        if (map.containsKey(val))
-            return false;
-        map.put(val, list.size());
+        if (map.containsKey(val)) return false;
+
         list.add(val);
+        map.put(val, list.size() - 1);
+
         return true;
     }
 
     public boolean remove(int val) {
-        if (!map.containsKey(val))
-            return false;
+        if (!map.containsKey(val)) return false;
 
-        int idx = map.remove(val);
-        int last = list.remove(list.size() - 1);
-        if (val != last) {
-            list.set(idx, last);
-            map.put(last, idx);
-        }
+        int idx = map.get(val);
+        int lastVal = list.get(list.size() - 1);
+
+        // swap
+        list.set(idx, lastVal);
+        map.put(lastVal, idx);
+
+        // remove
+        list.remove(list.size() - 1);
+        map.remove(val);
 
         return true;
     }
 
     public int getRandom() {
-        return list.get(random.nextInt(list.size()));
+        int idx = random.nextInt(list.size());
+        return list.get(idx);
     }
 
 }
