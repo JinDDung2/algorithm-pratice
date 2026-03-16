@@ -41,6 +41,6 @@ public class RemoveKDigits_402 {
             sb.append(stack.pop());
         }
 
-        return sb.length() == 0 ? "0" : sb.reverse().toString();
+        return sb.isEmpty() ? "0" : sb.reverse().toString();
     }
 }
