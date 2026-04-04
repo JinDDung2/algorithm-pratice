@@ -28,7 +28,7 @@ public class pathSumII_113 {
 
         if (node.left == null && node.right == null) {
             if (sum == target) {
-                result.add(path);
+                result.add(new ArrayList<>(path));
             }
         }
 
